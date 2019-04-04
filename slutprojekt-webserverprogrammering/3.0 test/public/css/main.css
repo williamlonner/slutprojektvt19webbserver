@@ -1,0 +1,390 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    margin: auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(4, auto);
+}
+
+.container header {
+    grid-column: 1/17;
+    grid-row: 1/2;
+    height: 300px;
+    background-color: rgb(255, 13, 88);
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.container header h1 {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    text-align: center;
+}
+
+.container header nav {
+    grid-column: 4/11;
+    grid-row: 1/2;
+}
+
+.container header nav ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.container header nav ul li {
+    float: left;
+}
+
+.container header nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.container header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.container header login {
+    grid-column: 15/17;
+    grid-row: 1/2;
+}
+
+.container header login a button {
+    width: 75px;
+    height: 30px;
+    border: none;
+    background-color: rgb(135, 12, 232);
+    margin-top: 10px;
+}
+
+.container header login a button:hover {
+    background-color: rgb(212, 0, 255);
+}
+
+.container header article {
+    height: 100px;
+    width: 300px;
+    background-color: snow;
+    margin-left: 900px;
+    margin-top: 150px;
+    text-align: center;
+    position: absolute;
+}
+
+.container header article p {
+    padding-top: 25px;
+}
+
+.container information {
+    grid-column: 1/17;
+    grid-row: 2/3;
+    height: 200px; 
+    display: grid;
+    grid-template-columns: inherit; 
+}
+
+.container information exampleProd {
+    grid-column: 1/17;
+    display: grid;
+    grid-template-columns: inherit;
+} 
+
+.container information exampleProd a {
+    color: black;
+    text-decoration: none;
+}
+
+.container information exampleProd a:hover {
+    color: rgb(255, 13, 88);
+}
+
+.container information exampleProd #p1 {
+    text-align: center;
+    grid-column: 2/4;
+    padding-top: 120px;
+    background-color: rgb(82, 13, 255);
+}
+
+.container information exampleProd #p2 {
+    text-align: center;
+    grid-column: 6/8;
+    padding-top: 120px;
+    background-color: rgb(82, 13, 255);
+}
+
+.container information exampleProd #p3 {
+    text-align: center;
+    grid-column: 10/12;
+    padding-top: 120px;
+    background-color: rgb(82, 13, 255);
+}
+
+.container information exampleProd #p4 {
+    text-align: center;
+    grid-column: 14/16;
+    padding-top: 120px;
+    background-color: rgb(82, 13, 255);
+}
+
+.container picture {
+    grid-column: 1/17;
+    grid-row: 3/4;
+    height: 300px;
+    background-image: url("../pics/picture.jpg")
+}
+
+.container picture article {
+    height: 100px;
+    width: 300px;
+    background-color: snow;
+    margin-left: 150px;
+    margin-top: 150px;
+    text-align: center;
+    position: absolute;
+}
+
+.container picture article p {
+    padding-top: 25px;
+}
+
+.container footer {
+    grid-column: 1/17;
+    grid-row: 4/5;
+    height: 100px;
+    display: grid;
+    grid-template-columns: inherit;
+    background-color: rgb(212, 0, 255);
+}
+
+.container footer p {
+    font-style: italic;
+    font-size: 12px;
+    grid-column: 1/4;
+    padding-top: 35px;
+}
+
+body cloginSite {
+    display: grid;
+    margin: auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50px auto;
+}
+
+body cloginSite loginForm {
+    grid-column: 4/14;
+    grid-row: 2/3;
+    height: 300px;
+    background-color: rgb(255, 13, 88);
+    border-radius: 5px;
+}
+
+body cloginSite loginForm input[name=uName] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body cloginSite loginForm input[name=pWord] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body cloginSite loginForm input[name=sIn] {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    background-color: rgb(135, 12, 232);
+}
+
+body cloginSite loginForm input[name=sIn]:hover {
+    background-color: rgb(212, 0, 255);
+}
+
+body cloginSite loginForm a {
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+}
+
+body cloginSite loginForm a:hover {
+    text-decoration: underline; 
+}
+
+body bloginSite {
+    display: grid;
+    margin: auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50px auto;
+}
+
+body bloginSite loginForm {
+    grid-column: 4/14;
+    grid-row: 2/3;
+    height: 300px;
+    background-color: rgb(255, 13, 88);
+    border-radius: 5px;
+}
+
+body bloginSite loginForm input[name=uNameC] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body bloginSite loginForm input[name=pWordC] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body bloginSite loginForm input[name=sIn] {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    background-color: rgb(135, 12, 232);
+}
+
+body bloginSite loginForm input[name=sIn]:hover {
+    background-color: rgb(212, 0, 255);
+}
+
+body bloginSite loginForm a {
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+}
+
+body bloginSite loginForm a:hover {
+    text-decoration: underline; 
+}
+
+body csignup {
+    display: grid;
+    margin: auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50px auto;
+}
+
+body csignup signupform {
+    grid-column: 4/14;
+    grid-row: 2/3;
+    height: 650px;
+    background-color: rgb(255, 13, 88);
+    border-radius: 5px;
+}
+
+body csignup signupform input[type=text] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body csignup signupform input[type=password] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body csignup signupform input[name=signUpPn] {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    background-color: rgb(135, 12, 232);
+}
+
+body csignup signupform input[name=signUpPn]:hover {
+    background-color: rgb(212, 0, 255);
+}
+
+body csignup signupform a {
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+}
+
+body csignup signupform a:hover {
+    text-decoration: underline; 
+}
+
+body bsignup {
+    display: grid;
+    margin: auto;
+    padding: 0;
+    width: 1280px;
+    height: auto;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 50px auto;
+}
+
+body bsignup signupform {
+    grid-column: 4/14;
+    grid-row: 2/3;
+    height: 650px;
+    background-color: rgb(255, 13, 88);
+    border-radius: 5px;
+}
+
+body bsignup signupform input[type=text] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body bsignup signupform input[type=password] {
+    width: 400px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    border-radius: 5px;
+}
+
+body bsignup signupform input[name=signUpCn] {
+    width: 75px;
+    height: 30px;
+    border: solid 1px rgb(232, 12, 190);
+    background-color: rgb(135, 12, 232);
+}
+
+body bsignup signupform input[name=signUpCn]:hover {
+    background-color: rgb(212, 0, 255);
+}
+
+body bsignup signupform a {
+    color: black;
+    font-style: italic;
+    text-decoration: none;
+}
+
+body bsignup signupform a:hover {
+    text-decoration: underline; 
+}
