@@ -22,3 +22,4 @@ Det som jag ska göra är en hemsida med två sidor. Ena sidan är anpassad för
 Jag har skapat en mapp kallad efter versionen jag utvecklar av hemsidan kallad 3.0 i detta fallet som visar att jag har skapat en tredje version och därför menar att det är den mappen jag ska lämna in. Sedan har jag alla nödvändiga mappar inuti den som man är van vid. 
 
 ## 5. (Databas med ER-diagram)
+![alt text](https://drive.google.com/file/d/0ByfhMoIkE5dUQnNJa1ktcktCakFaX0tqWEpTbnN4Vzg0eWdr/view "Mitt ER-DIAGRAM")
