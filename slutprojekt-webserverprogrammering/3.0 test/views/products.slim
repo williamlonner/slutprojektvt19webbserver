@@ -1,17 +1,27 @@
-.container
-        header
-            h1 ShopSite
+products
 
-            nav
-                ul 
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/">About</a></li>
-            
-            login
-                <a id="toLogin" href="/clogin"><button>Login</button></a>
-                br
-                <a id="toSignUp" href="/csignup"><button>Sign Up</button></a>
+    h3 Here are all the products
 
-            article
-                p Buy your products now and get 20% off
+    productlist
+        ul
+           - products.each do |x|
+               form action="productName" METHOD="POST"
+                input type="submit" value="#{x['name']}" name="productName"
+               li = "#{x['price']}Kr"
+               br
+
+    form action="logout" METHOD="POST"
+        input type="submit" value="Log out" name="buttonlogout"
+
+        
+
+
+
+
+
+
+
+
+
+
+

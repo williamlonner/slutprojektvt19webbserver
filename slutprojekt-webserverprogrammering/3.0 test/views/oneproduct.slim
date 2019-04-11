@@ -1,0 +1,13 @@
+p PIC
+
+p = info['name']
+p = "Pris: " + info['price'].to_s + "Kr"
+
+
+form action="addToBasket" METHOD="POST"
+    input type="number" placeholder="Number of" name="amount"
+    input type="submit" value="Buy" name="buy"
+
+
+form action="destroyName" METHOD="POST"
+    input type="submit" value="Back" name="destroyName"

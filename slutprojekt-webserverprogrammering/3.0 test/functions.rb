@@ -1,6 +1,7 @@
 def database()
-    return SQLite3::Database.new("db/db.db")
+    db = SQLite3::Database.new("db/db.db")
     db.results_as_hash = true
+    db
 end
 
 def signUp(params)
@@ -27,20 +28,55 @@ end
 def login(params)
     db = database()
     if (params['uName'] && params['pWord']) != nil
-        password = db.execute('SELECT password FROM cCostumers WHERE username = ?', params['uName'])
+        password = db.execute('SELECT password, cCostumerId FROM cCostumers WHERE username = ?', params['uName'])
         hashed_pass = BCrypt::Password.new(password[0][0])
         if hashed_pass == params['pWord']
-            redirect('/')
+            session[:id] = password[0]['cCostumerId']
+            redirect('/cloggedin')
         else
             redirect('/clogin')
         end
     elsif params['uNameC'] && params['pWordC'] != nil
-        password = db.execute('SELECT password FROM bCostumers WHERE username = ?', params['uNameC'])
+        password = db.execute('SELECT password, bCostumerId FROM bCostumers WHERE username = ?', params['uNameC'])
         hashed_pass = BCrypt::Password.new(password[0][0])
         if hashed_pass == params['pWordC']
+            session[:id] = password[0]['bCostumerId']
             redirect('/')
         else
             redirect('/blogin')
         end
+    end
+end
+
+def productlist(params)
+    db = database()
+    return db.execute('SELECT name, price FROM products')
+end
+
+def productinfo(params) 
+    db = database()
+    result = db.execute('SELECT * FROM products WHERE name=?',params['productName'])
+    return result.first
+end
+
+def oneproduct(id) 
+    db = database()
+    result = db.execute('SELECT * FROM products WHERE productId=?',id)
+    return result.first
+end
+
+def logout(params) 
+    db = database()
+    session.destroy
+    redirect('/')
+end
+
+def addBasket(params)
+    db = database()
+    if params['amount'] != nil
+        db.execute("INSERT INTO basket VALUES (?, ?, 0, ?)",session[:productId], params['amount'], session[:id])
+        redirect('/basket')
+    else
+        redirect('/products')
     end
 end
