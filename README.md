@@ -3,23 +3,23 @@
 # Projektplan
 
 ## 1. Projektbeskrivning
-Det som jag ska göra är en hemsida med två sidor. Ena sidan är anpassad för en kund som kan vara en företagare eller en privatperson. Den hemsidan innehåller antingen tjänster eller produkter som kunden kan köpa eller beställa. När kunden har köpt en produkt så ska en admin på den andra sidan se alla beställningar som ordrar. Där kan admin kolla så att allt i beställningen stämmer och hen kan se vem som har beställt. Därefter klickar hen färdigbehandlad för ordern och det gör att man är redo att beställa transport för beställningen. Det jag ska göra är en webbshop som är kopplad till ett automatiskt bokföringsprogram.
+Den hemsida som jag ska utveckla är en hemsida där du kan skapa event för dina vänner. Du ska kunna skapa ett konto på hemsidan och logga in. När du är inloggad ska du ha möjligheten att skapa event där du kan välja max antal personer som får komma, du kan skriva extra information om eventet och vart det ska vara vid vilken tid. När du har skapat ett event kan du ändra eventet om du skulle vilja så att datan ändras. Du kan även på denna sidan ta bort dina event. Som en person som tittar i flödet ska du kunna ge reviews på event som du har varit på och därmed kunna ge feedback till dina vänner ifall de planerar att ha ett till event i framtiden. På alla event som du inte har skapat så kan du gå med och därmed visa den som planerar eventet att du vill komma. Du kan även ge kommentarer på inläggen om du vill och därmed skapa konversationer. Du ska även kunna ha vänner som själv valt att lägga till på hemsidan. 
 
 ## 2. Vyer (sidor)
-- Vi har en homesida där lite exempelprioduktervisas samt andra erbjudanden.
-- Vi har en produktsida med alla produkter.
-- Vi har en aboutsida med all information om företaget m.m.
-- Vi har en inloggningssida med inlogg för företag och kund.
-- Vi har en registreringssida för kunder och företagare.
-- Vi har en sida där företagsägaren (admin) kan se alla ordrar.
-- Vi har en sida där du som admin kan gå in på varje beställd order och kolla på informationen. 
-- Vi har en sida där vi kan fakturera och göra offerter av ordrar.
+- Inloggningssidan
+- Registreringssidan för skapandet av ett nytt konto
+- Flödessidan för eventen
+- Feedbacksidan
+- Redigeringssidan
+- (kommentarssidan)
+- (kompissidan)
+- Eventuellt profilsidan
 
 ## 3. Funktionalitet (med sekvensdiagram)
 
 
 ## 4. Arkitektur (Beskriv filer och mappar)
-Jag har skapat en mapp kallad efter versionen jag utvecklar av hemsidan kallad 3.0 i detta fallet som visar att jag har skapat en tredje version och därför menar att det är den mappen jag ska lämna in. Sedan har jag alla nödvändiga mappar inuti den som man är van vid. 
+I min mapp som jag arbetar i har jag skapat en app.rb samt en functions.rb fil. app.rb tar hand om alla routes med sinatrakod. functions.rb tar hand om alla funktioner som jag skapat med rubykod blandat med sinatra. Min mapp struktur ser ut som så att jag har en database mapp med min database.db fil. Sedan har jag även en public mapp med css, javascript och bild filer. Den sista mappen jag arbetar i är views mappen vilket är den mapp som jag har alla html filer i. 
 
 ## 5. (Databas med ER-diagram)
-![alt text](https://drive.google.com/file/d/0ByfhMoIkE5dUQnNJa1ktcktCakFaX0tqWEpTbnN4Vzg0eWdr/view "Mitt ER-DIAGRAM")
+
