@@ -2,16 +2,16 @@ h1 Edit events here
 a href="/loggedIn" Back
 
 - events.each do |x|
-    h4 = x['header']
-    p = "Eventet är i #{x['place']} och inträffar den #{x['date']}"
+    h4 = x['Header']
+    p = "Eventet är i #{x['Place']} och inträffar den #{x['EventDate']}"
 
-    - if x['comment'] != ""
+    - if x['Comment'] != ""
         h4 = "Övrig info:"
-        p = x['comment']
+        p = x['Comment']
         form action="deleteEvent" METHOD="POST"
-            button name="eventDelete" value="#{x['postId']}" Delete
+            button name="eventDelete" value="#{x['EventId']}" Delete
         br
     - else
         form action="deleteEvent" METHOD="POST"
-            button name="eventDelete" value="#{x['postId']}" Delete
+            button name="eventDelete" value="#{x['EventId']}" Delete
         br

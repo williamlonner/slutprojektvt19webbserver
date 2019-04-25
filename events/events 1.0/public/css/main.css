@@ -143,7 +143,7 @@ body {
     grid-row: 2/1000;
 }
 
-.container flow events oneEvent button[name="commingEvent"] {
+.container flow events oneEvent button[name="comingEvent"] {
     width: 125px;
     height: 35px;
     margin: 8px;
@@ -154,7 +154,7 @@ body {
     color: white;
 }
 
-.container flow events oneEvent button[name="commingEvent"]:hover {
+.container flow events oneEvent button[name="comingEvent"]:hover {
     background-color: rgb(193, 50, 50);
 }
 

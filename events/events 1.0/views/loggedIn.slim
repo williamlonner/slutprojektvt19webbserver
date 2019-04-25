@@ -1,6 +1,6 @@
 .container
     header
-        p = "You have logged in, " + user['username'].upcase!
+        p = "You have logged in, " + user['Username'].upcase!
 
         form action="doneEvents" POST="METHOD"
             input type="submit" value="Review event" name="review"
@@ -60,19 +60,19 @@
         events
             - events.each do |x|
                 oneEvent
-                    h4 = x['header']
-                    p = "Eventet är i #{x['place']} och inträffar den #{x['date']}"
-                    - if x['comment'] != ""
+                    h4 = x['Header']
+                    p = "Eventet är i #{x['Place']} och inträffar den #{x['EventDate']}"
+                    - if x['Comment'] != ""
                         h4 = "Extra info:"
-                        p = x['comment']
-                        - if x['userId'] != user['Id']
+                        p = x['Comment']
+                        - if x['UserId'] != user['Id']
                             form action="joiningEvent" METHOD="POST"
-                                button name="commingEvent" value="#{x['postId']}" Join
+                                button name="comingEvent" value="#{x['EventId']}" Join
                         form action="comments" METHOD="POST"
-                            button name="readComments" value="#{x['postId']}" Read comments
-                    - if x['comming'] == nil || x['comming'] == 0
-                        p 0/#{x['maxAmount'].to_s} are coming
+                            button name="readComments" value="#{x['EventId']}" Read comments
+                    - if x['Coming'] == nil || x['Coming'] == 0
+                        p 0/#{x['MaxAmount'].to_s} are coming
                     - else
-                        p #{x['comming']}/#{x['maxAmount'].to_s} are coming
+                        p #{x['Coming']}/#{x['MaxAmount'].to_s} are coming
                     p #{x['Timestamp']}
                     br

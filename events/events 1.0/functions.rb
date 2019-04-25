@@ -7,10 +7,10 @@ end
 def login(params) 
     db = database()
     if params['Uname'] != nil && params['Pword'] != nil
-        password = db.execute('SELECT password FROM users WHERE username =?',params['Uname'].to_s)
-        hashed_pass = BCrypt::Password.new(password[0]['password'].to_s)
+        password = db.execute('SELECT Password FROM users WHERE Username =?',params['Uname'].to_s)
+        hashed_pass = BCrypt::Password.new(password[0]['Password'].to_s)
         if hashed_pass == params['Pword']
-            return db.execute('SELECT Id FROM users WHERE username =?', params['Uname'].to_s).first
+            return db.execute('SELECT Id FROM users WHERE Username =?', params['Uname'].to_s).first
         end
     else
         redirect('/')
@@ -21,7 +21,7 @@ def signUp(params)
     db = database()
     if params['nUname'] != nil && params['nPword'] != nil
         hashed_pass = BCrypt::Password.create(params['nPword'].to_s)
-        return db.execute('INSERT INTO users (username, password) VALUES (?, ?)',params['nUname'].to_s,hashed_pass)
+        return db.execute('INSERT INTO users (Username, Password) VALUES (?, ?)',params['nUname'].to_s,hashed_pass)
     end
 end
 
@@ -35,26 +35,26 @@ def addEvent(params, userid)
     db = database()
     date = (params['nDay'] + " " + params['nMonth'])
     if params['nComment'] != nil
-        return db.execute("INSERT INTO events (userId, header, place, date, comment, maxAmount) VALUES (?, ?, ?, ?, ?, ?)",userid,params['nEname'],params['nWhere'],date,params['nComment'], params['maxAmount'])
+        return db.execute("INSERT INTO events (UserId, Header, Place, EventDate, Comment, MaxAmount) VALUES (?, ?, ?, ?, ?, ?)",userid,params['nEname'],params['nWhere'],date,params['nComment'], params['maxAmount'])
     else
-        return db.execute("INSERT INTO events (userId, header, place, date, maxAmount) VALUES (?, ?, ?, ?, ?)",userid,params['nEname'],params['nWhere'],date, params['maxAmount'])
+        return db.execute("INSERT INTO events (UserId, Header, Place, EventDate, MaxAmount) VALUES (?, ?, ?, ?, ?)",userid,params['nEname'],params['nWhere'],date, params['maxAmount'])
     end
 end
 
 def getEvent(params)
     db = database()
-    return db.execute("SELECT * FROM events ORDER BY postId DESC")
+    return db.execute("SELECT * FROM events ORDER BY EventId DESC")
 end
 
 def getUserEvent(id)
     db = database()
-    return db.execute("SELECT * FROM events WHERE userId = ? ORDER BY postId DESC",id)
+    return db.execute("SELECT * FROM events WHERE UserId = ? ORDER BY EventId DESC",id)
 end
 
 def deleteEvent(params)
     db = database()
-    db.execute("DELETE FROM comming WHERE postId = ?",params['eventDelete'])
-    return db.execute("DELETE FROM events WHERE postId = ?",params['eventDelete'])
+    db.execute("DELETE FROM coming WHERE EventId = ?",params['eventDelete'])
+    return db.execute("DELETE FROM events WHERE EventId = ?",params['eventDelete'])
 end
 
 def redirectLoggedIn()
@@ -67,9 +67,9 @@ end
 
 def joinEvent(params)
     db = database()
-    userId = db.execute("SELECT userId FROM events WHERE postId = ?",params['commingEvent']).first
-    db.execute("INSERT INTO comming (postId, userId) VALUES (?, ?)",params['commingEvent'],userId['userId'])
-    return params['commingEvent']
+    userId = db.execute("SELECT UserId FROM events WHERE EventId = ?",params['comingEvent']).first
+    db.execute("INSERT INTO coming (EventId, UserId) VALUES (?, ?)",params['comingEvent'],userId['UserId'])
+    return params['comingEvent']
 end
 
 def countingJoined(session)
@@ -80,10 +80,10 @@ def countingJoined(session)
     else    
         session[result] += 1
     end
-    return db.execute("UPDATE events SET comming = ? WHERE postId = ?",session[result],result)
+    return db.execute("UPDATE events SET coming = ? WHERE EventId = ?",session[result],result)
 end
 
 def getCommingInfo(params)
     db = database()
-    return db.execute("SELECT userId FROM comming")
+    return db.execute("SELECT UserId FROM coming")
 end

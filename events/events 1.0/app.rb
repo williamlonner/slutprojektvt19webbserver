@@ -19,8 +19,8 @@ end
 get('/loggedIn/:id') do
     info = getUserInfo(params)
     events = getEvent(params)
-    comming = getCommingInfo(params)
-    slim(:loggedIn, locals:{user: info, events: events, comming: comming, session: session})
+    coming = getCommingInfo(params)
+    slim(:loggedIn, locals:{user: info, events: events, coming: coming, session: session})
 end
 
 get('/loggedIn/editevents/:id') do
