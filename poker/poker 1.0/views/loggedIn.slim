@@ -1,0 +1,78 @@
+.container
+    header
+        p = "You have logged in, " + user['username'].upcase!
+
+        form action="doneEvents" POST="METHOD"
+            input type="submit" value="Review event" name="review"
+
+        form action="editEvent" METHOD="POST"
+            input type="submit" value="Edit events" name="edit"
+
+        form action="loggingOut" METHOD="POST"
+            input type="submit" value="Log out" name="logOut"
+
+    button class="open-button" onclick="openForm()" Friends
+
+    .popup id="myForm"
+        .popup-container
+            h2 Friends
+            p Arne
+            button name="friendChatt" Chatt
+
+            button type="button" class="btn cancel" onclick="closeForm()" Friends
+
+    createEvent
+
+        br
+        br
+        form action="createEvent" METHOD="POST"
+            input type="text" placeholder="Event name" name="nEname"
+            input type="text" placeholder="Where?" name="nWhere"
+            br
+            input type="number" placeholder="Day" name="nDay"
+            select name="nMonth"
+                option value="Januari" Januari
+                option value="Februari" Februari
+                option value="Mars" Mars
+                option value="April" April
+                option value="Maj" Maj
+                option value="Juni" Juni
+                option value="Juli" Juli
+                option value="Augusti" Augusti
+                option value="September" September
+                option value="Oktober" Oktober
+                option value="November" November
+                option value="December" December
+            br
+            br
+            label for="maxAmount" Max amount of people: 
+            input type="number" placeholder="Amount" name="maxAmount"
+            br
+            br
+            textarea# name="nComment" cols="64" rows="6" placeholder="Extra info..."
+            br
+            input type="submit" value="Create event" name="nEvent"
+
+    flow
+
+        h2 Below are all the upcoming events
+
+        events
+            - events.each do |x|
+                oneEvent
+                    h4 = x['header']
+                    p = "Eventet är i #{x['place']} och inträffar den #{x['date']}"
+                    - if x['comment'] != ""
+                        h4 = "Extra info:"
+                        p = x['comment']
+                        - if x['userId'] != user['Id']
+                            form action="joiningEvent" METHOD="POST"
+                                button name="commingEvent" value="#{x['postId']}" Join
+                        form action="comments" METHOD="POST"
+                            button name="readComments" value="#{x['postId']}" Read comments
+                    - if x['comming'] == nil || x['comming'] == 0
+                        p 0/#{x['maxAmount'].to_s} are coming
+                    - else
+                        p #{x['comming']}/#{x['maxAmount'].to_s} are coming
+                    p #{x['Timestamp']}
+                    br

@@ -1,0 +1,232 @@
+body {
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.container {
+    display: grid;
+    padding: 0;
+    background-image: url("../pics/wallpaper.jpg");
+    width: 100vw;
+    height: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 100px 500px auto;
+}
+
+.container header {
+    grid-column: 1/17;
+    grid-row: 1/2;
+    background-color: white;
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.container header p {
+    grid-column: 1/17;
+    grid-row: 1/2;
+}
+
+.container header form[action="doneEvents"] {
+    grid-column: 6/8;
+    grid-row: 3/4;
+}
+
+.container header form[action="editEvent"] {
+    grid-column: 8/10;
+    grid-row: 3/4;
+}
+
+.container header input[type=submit] {
+    width: 120px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.container header input[type=submit]:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.container header form[action="loggingOut"] {
+    grid-column: 10/12;
+    grid-row: 3/4;
+}
+
+.container createEvent {
+    grid-column: 1/17;
+    grid-row: 2/3;
+    background-color: white;
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.container createEvent form[action="createEvent"] {
+    grid-column: 1/17;
+    grid-row: 1/7;
+    margin-top: 24px;
+}
+
+.container createEvent input[type=text] {
+    width: 300px;
+    height: 35px;
+    margin: 8px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.container createEvent select[name="nMonth"] {
+    width: 304px;
+    height: 40px;
+    margin: 8px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.container createEvent input[type=number] {
+    width: 300px;
+    height: 35px;
+    margin: 8px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.container createEvent [name="nComment"] {
+    width: 620px;
+    height: 120px;
+    border: 1px solid black;
+} 
+
+.container createEvent [name="nEvent"] {
+    width: 300px;
+    height: 45px;
+    margin: 8px;
+    margin-top: 24px;
+    border-radius: 25px;
+    box-shadow: 2px 2px;
+    border: none;
+    background-color: rgb(179, 0, 0);
+    color: white;
+}
+
+.container createEvent [name="nEvent"]:hover {
+    background-color: rgb(193, 50, 50);
+}
+
+.container flow {
+    grid-column: 5/13;
+    grid-row: 3/4;
+    margin-top: 16px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: inherit;
+    grid-template-rows: inherit;
+}
+
+.container flow h2 {
+    grid-column: 1/17;
+    grid-row: 1/2;
+    margin-top: 36px; 
+}
+
+.container flow events {
+    grid-column: 1/17;
+    grid-row: 2/1000;
+}
+
+.container flow events oneEvent button[name="commingEvent"] {
+    width: 125px;
+    height: 35px;
+    margin: 8px;
+    border-radius: 25px;
+    box-shadow: 2px 2px;
+    border: none;
+    background-color: rgb(179, 0, 0);
+    color: white;
+}
+
+.container flow events oneEvent button[name="commingEvent"]:hover {
+    background-color: rgb(193, 50, 50);
+}
+
+.container flow events oneEvent button[name="readComments"] {
+    background: transparent;
+    border: none;
+    color: black;
+    font-style: italic;
+}
+
+.container flow events oneEvent button[name="readComments"]:hover {
+    color: rgb(54, 54, 54);
+}
+
+.container .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 150px;
+    border-radius: 25px;
+  }
+  
+  .container .popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  .container .popup-container {
+    width: 150px;
+    height: 400px;
+    padding: 10px;
+    text-align: left;
+    background-color: white;
+  }
+
+  .container .popup-container p {
+      display: inline;
+  }
+
+  .container .popup-container button[name="friendChatt"] {
+    background-color: transparent;
+    border: none;
+    margin-left: 40px;
+    position: absolute;
+  }
+  
+  .popup-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    border-radius: 25px;
+  }
+  
+  .popup-container .cancel {
+    background-color: red;
+  }
+  
+  .popup-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
