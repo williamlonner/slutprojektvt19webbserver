@@ -1,12 +1,16 @@
 commentFlow
-    p Write your comment
+    p Write your comment on this event
 
     form action="writeComment" METHOD="POST"
         textarea# name="commentContent" cols="64" rows="6" placeholder="Comment"
         br
         button name="createComment" value="" Post comment
 
+    a href="/loggedIn/#{session[:id]}" Back
+
     p Earlier comments:
 
     - comments.each do |x|
+        h3 #{writer['Username'].capitalize}
+        p #{x['Comment']}
         

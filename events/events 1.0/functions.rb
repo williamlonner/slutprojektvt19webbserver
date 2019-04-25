@@ -83,7 +83,23 @@ def countingJoined(session)
     return db.execute("UPDATE events SET coming = ? WHERE EventId = ?",session[result],result)
 end
 
-def getCommingInfo(params)
+def getComingInfo(params)
     db = database()
     return db.execute("SELECT UserId FROM coming")
+end
+
+def getComments(session)
+    db = database()
+    return db.execute("SELECT * FROM comments WHERE EventId = ?", session['eventId'])
+end
+
+def writeComment(params, session)
+    db = database()
+    if params['commentContent'] != nil 
+        db.execute("INSERT INTO comments (EventId, UserId, Comment) VALUES (?, ?, ?)",session['eventId'],session['id'],params['commentContent'])
+    else
+        db.execute("INSERT INTO comments (EventId, UserId, Comment) VALUES (?, ?, '')",session['eventId'],session['id'])
+    end 
+    userId = db.execute("SELECT Username FROM users WHERE Id = ?",session['id']).first
+    return userId
 end

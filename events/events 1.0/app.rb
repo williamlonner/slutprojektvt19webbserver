@@ -16,10 +16,14 @@ get('/signUp') do
     slim(:signUp)
 end
 
+get('/loggedIn/') do
+    redirect('/')
+end
+
 get('/loggedIn/:id') do
     info = getUserInfo(params)
     events = getEvent(params)
-    coming = getCommingInfo(params)
+    coming = getComingInfo(params)
     slim(:loggedIn, locals:{user: info, events: events, coming: coming, session: session})
 end
 
@@ -36,8 +40,10 @@ get('/loggedIn') do
     redirectLoggedIn()
 end
 
-get('/loggedIn/comments/:postId') do
-    slim(:comments)
+get('/loggedIn/comments/:eventId') do
+    comments = getComments(session)
+    writer = session[:commentWriter]
+    slim(:comments, locals:{comments: comments, writer: writer})
 end
 
 post('/loggingIn') do
@@ -76,6 +82,11 @@ post('/loggedIn/joiningEvent') do
 end
 
 post('/loggedIn/comments') do
-    session[:postId] = params['readComments']
-    redirect("/loggedIn/comments/#{session[:postId]}")
+    session[:eventId] = params['readComments']
+    redirect("/loggedIn/comments/#{session[:eventId]}")
+end
+
+post('/loggedIn/comments/writeComment') do
+    session[:commentWriter] = writeComment(params, session)
+    redirect("/loggedIn/comments/#{session[:eventId]}")
 end

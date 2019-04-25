@@ -61,7 +61,7 @@
             - events.each do |x|
                 oneEvent
                     h4 = x['Header']
-                    p = "Eventet är i #{x['Place']} och inträffar den #{x['EventDate']}"
+                    p = "Place: #{x['Place']}, Time: #{x['EventDate']}"
                     - if x['Comment'] != ""
                         h4 = "Extra info:"
                         p = x['Comment']
