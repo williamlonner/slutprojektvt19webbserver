@@ -1,5 +1,8 @@
 commentFlow
-    p Write your comment on this event
+    - if comments.length == 2
+        p = "Comment on " + comments[1][0]['Username'].capitalize + "'s event"
+    - else 
+        p = "Comment on " + comments[0]['Username'].capitalize + "'s event" 
 
     form action="writeComment" METHOD="POST"
         textarea# name="commentContent" cols="64" rows="6" placeholder="Comment"
@@ -10,7 +13,18 @@ commentFlow
 
     p Earlier comments:
 
-    - comments.each do |x|
-        h3 #{writer['Username'].capitalize}
-        p #{x['Comment']}
+    - if comments.length == 2
+        - comments[0].each do |x|
+            - if x['Comment'] != nil
+                h3 #{x['Username'].capitalize}
+                p #{x['Comment']}
+                p #{x['Timestamp']}
+            - else
+    - else
+        - comments.each do |x|
+            - if x['Comment'] != nil
+                h3 #{x['Username'].capitalize}
+                p #{x['Comment']}
+                p #{x['Timestamp']}
+            - else
         

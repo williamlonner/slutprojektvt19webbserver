@@ -24,7 +24,8 @@ get('/loggedIn/:id') do
     info = getUserInfo(params)
     events = getEvent(params)
     coming = getComingInfo(params)
-    slim(:loggedIn, locals:{user: info, events: events, coming: coming, session: session})
+    joined = joinedOrNot(params)
+    slim(:loggedIn, locals:{user: info, events: events, coming: coming, session: session, joined: joined})
 end
 
 get('/loggedIn/editevents/:id') do
@@ -42,8 +43,7 @@ end
 
 get('/loggedIn/comments/:eventId') do
     comments = getComments(session)
-    writer = session[:commentWriter]
-    slim(:comments, locals:{comments: comments, writer: writer})
+    slim(:comments, locals:{comments: comments})
 end
 
 post('/loggingIn') do
@@ -76,8 +76,7 @@ post('/loggedIn/editEvent/deleteEvent') do
 end
 
 post('/loggedIn/joiningEvent') do
-    joinEvent(params)
-    countingJoined(session)
+    joinEvent(params, session)
     redirect("/loggedIn/#{session[:id]}")
 end
 
@@ -87,6 +86,6 @@ post('/loggedIn/comments') do
 end
 
 post('/loggedIn/comments/writeComment') do
-    session[:commentWriter] = writeComment(params, session)
+    writeComment(params, session)
     redirect("/loggedIn/comments/#{session[:eventId]}")
 end

@@ -19,7 +19,7 @@
             p Arne
             button name="friendChatt" Chatt
 
-            button type="button" class="btn cancel" onclick="closeForm()" Friends
+            button type="button" class="btn cancel" onclick="closeForm()" Close
 
     createEvent
 
@@ -55,7 +55,7 @@
 
     flow
 
-        h2 Below are all the upcoming events
+        h2 UPCOMING EVENTS
 
         events
             - events.each do |x|
@@ -66,11 +66,15 @@
                         h4 = "Extra info:"
                         p = x['Comment']
                         - if x['UserId'] != user['Id']
-                            form action="joiningEvent" METHOD="POST"
-                                button name="comingEvent" value="#{x['EventId']}" Join
+                            - if joined != false
+                                form action="unJoiningEvent" METHOD="POST"
+                                    button name="notComingEvent" value="#{x['UserId']}" Un join
+                            - else
+                                form action="joiningEvent" METHOD="POST"
+                                    button name="comingEvent" value="#{x['EventId']}" Join
                         form action="comments" METHOD="POST"
                             button name="readComments" value="#{x['EventId']}" Read comments
-                    - if x['Coming'] == nil || x['Coming'] == 0
+                    - if x['Coming'] == nil
                         p 0/#{x['MaxAmount'].to_s} are coming
                     - else
                         p #{x['Coming']}/#{x['MaxAmount'].to_s} are coming

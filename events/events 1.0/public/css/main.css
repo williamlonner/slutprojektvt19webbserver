@@ -158,6 +158,21 @@ body {
     background-color: rgb(193, 50, 50);
 }
 
+.container flow events oneEvent button[name="notComingEvent"] {
+    width: 125px;
+    height: 35px;
+    margin: 8px;
+    border-radius: 25px;
+    box-shadow: 2px 2px;
+    border: none;
+    background-color: rgb(179, 0, 0);
+    color: white;
+}
+
+.container flow events oneEvent button[name="notComingEvent"]:hover {
+    background-color: rgb(193, 50, 50);
+}
+
 .container flow events oneEvent button[name="readComments"] {
     background: transparent;
     border: none;

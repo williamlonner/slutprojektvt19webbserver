@@ -65,32 +65,49 @@ def redirectLoggedIn()
     end
 end
 
-def joinEvent(params)
+def joinEvent(params, session)
     db = database()
-    userId = db.execute("SELECT UserId FROM events WHERE EventId = ?",params['comingEvent']).first
-    db.execute("INSERT INTO coming (EventId, UserId) VALUES (?, ?)",params['comingEvent'],userId['UserId'])
-    return params['comingEvent']
+    db.execute("INSERT INTO coming (EventId, UserId) VALUES (?, ?)",params['comingEvent'],session['id'])
+    count = db.execute("SELECT Coming FROM events WHERE EventId = ?",params['comingEvent']).first
+    if count['Coming'] == nil
+        new_count = 1
+    else
+        new_count = count['Coming'] + 1
+    end
+    db.execute("UPDATE events SET coming = ? WHERE EventId = ?",new_count,params['comingEvent'])
+    return db.execute("SELECT UserId FROM coming WHERE EventId = ?",params['comingEvent'])
 end
 
-def countingJoined(session)
+def joinedOrNot(params)
     db = database()
-    result = joinEvent(params)[0].to_i
-    if session[result] == nil
-        session[result] = 1
-    else    
-        session[result] += 1
+    joined = false
+    comingInfo = db.execute("SELECT UserId FROM coming")
+    comingInfo.each do |id|
+        if id['UserId'] == params['id'].to_i
+            joined = true
+            break
+        end
     end
-    return db.execute("UPDATE events SET coming = ? WHERE EventId = ?",session[result],result)
+    return joined
 end
 
 def getComingInfo(params)
     db = database()
-    return db.execute("SELECT UserId FROM coming")
+    return db.execute("SELECT * FROM coming")
 end
 
 def getComments(session)
     db = database()
-    return db.execute("SELECT * FROM comments WHERE EventId = ?", session['eventId'])
+    getComment = db.execute("SELECT comment FROM comments WHERE EventId = ?",session['eventId'])
+    if getComment == []
+        userId = db.execute("SELECT UserId FROM events WHERE EventId = ?",session['eventId']).first
+        return db.execute("SELECT Username FROM users WHERE Id = ?",userId['UserId'])
+    else
+        comments = db.execute("SELECT * FROM comments INNER JOIN users ON users.Id = comments.UserId WHERE EventId = ? ORDER BY CommentId DESC",session['eventId'])
+        userId = db.execute("SELECT UserId FROM events WHERE EventId = ?",session['eventId']).first
+        userName = db.execute("SELECT Username FROM users WHERE Id = ?",userId['UserId'])
+        return comments, userName
+    end
 end
 
 def writeComment(params, session)
@@ -100,6 +117,4 @@ def writeComment(params, session)
     else
         db.execute("INSERT INTO comments (EventId, UserId, Comment) VALUES (?, ?, '')",session['eventId'],session['id'])
     end 
-    userId = db.execute("SELECT Username FROM users WHERE Id = ?",session['id']).first
-    return userId
 end
