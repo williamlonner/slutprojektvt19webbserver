@@ -4,7 +4,7 @@ require 'sqlite3'
 require 'byebug'
 require 'bcrypt'
 require 'date'
-require_relative './functions.rb'
+require_relative './model.rb'
 
 enable :sessions
 
@@ -21,7 +21,11 @@ get('/loggedIn/') do
 end
 
 get('/loggedIn/:id') do
-    info = getUserInfo(params)
+    if getUserInfo(params) != nil
+        info = getUserInfo(params)
+    else
+        info = " "
+    end
     events = getEvent(params)
     coming = getComingInfo(params)
     joined = joinedOrNot(params)
@@ -38,21 +42,44 @@ get('/loggedIn/editEvent/:id') do
 end
 
 get('/loggedIn') do
-    redirectLoggedIn()
+    if redirectLoggedIn() == true
+        redirect("/loggedIn/#{session[:id]}")
+    else
+        redirect('/')
+    end
 end
 
 get('/loggedIn/comments/:eventId') do
     comments = getComments(session)
-    slim(:comments, locals:{comments: comments})
+    if comments != false
+        slim(:comments, locals:{comments: comments})
+    else
+        redirect("/loggedIn/#{session[:id]}")
+    end
+end
+
+get('/error') do
+    slim(:error)
 end
 
 post('/loggingIn') do
-    session[:id] = login(params)['Id']
-    redirect("/loggedIn/#{session[:id]}")
+    if login(params) != nil
+        session[:id] = login(params)['Id']
+        redirect("/loggedIn/#{session[:id]}")
+    else
+        redirect('/error')
+    end
+
+    if login(params) != false
+        redirect("/loggedIn/#{session[:id]}")
+    else
+        redirect('/error')
+    end
 end
 
 post('/signingUp') do
-    signUp(params)
+    signUp = signUp(params)
+    ifSignUp(signUp)
     redirect('/')
 end
 
@@ -71,13 +98,19 @@ post('/loggedIn/editEvent') do
 end
 
 post('/loggedIn/editEvent/deleteEvent') do
-    deleteEvent(params)
-    redirect("/loggedIn/editEvent/#{session[:id]}")
+    if deleteEvent(params, session) != false
+        redirect("/loggedIn/editEvent/#{session[:id]}")
+    else
+        redirect('/error')
+    end
 end
 
 post('/loggedIn/joiningEvent') do
-    joinEvent(params, session)
-    redirect("/loggedIn/#{session[:id]}")
+    if joinEvent(params, session) == false
+        redirect('/error')
+    else
+        redirect("/loggedIn/#{session[:id]}")
+    end
 end
 
 post('/loggedIn/comments') do
@@ -86,6 +119,19 @@ post('/loggedIn/comments') do
 end
 
 post('/loggedIn/comments/writeComment') do
-    writeComment(params, session)
-    redirect("/loggedIn/comments/#{session[:eventId]}")
+    newComment = writeComment(params, session)
+    if newComment != false
+        redirect("/loggedIn/comments/#{session[:eventId]}")
+    else
+        redirect('/error')
+    end
+end
+
+post('/loggedIn/unJoiningEvent') do
+    unJoinEvent(params, session)
+    redirect("/loggedIn/#{session[:id]}")
+end
+
+post('/loggedIn/doneEvents') do
+    redirect("/loggedIn/#{session[:id]}")
 end

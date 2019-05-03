@@ -68,12 +68,12 @@
                         - if x['UserId'] != user['Id']
                             - if joined != false
                                 form action="unJoiningEvent" METHOD="POST"
-                                    button name="notComingEvent" value="#{x['UserId']}" Un join
+                                    button name="notComingEvent" value="#{x['EventId']}" Un join
                             - else
                                 form action="joiningEvent" METHOD="POST"
                                     button name="comingEvent" value="#{x['EventId']}" Join
-                        form action="comments" METHOD="POST"
-                            button name="readComments" value="#{x['EventId']}" Read comments
+                    form action="comments" METHOD="POST"
+                        button name="readComments" value="#{x['EventId']}" Read comments
                     - if x['Coming'] == nil
                         p 0/#{x['MaxAmount'].to_s} are coming
                     - else
