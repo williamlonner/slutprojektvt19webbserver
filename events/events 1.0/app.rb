@@ -79,7 +79,6 @@ end
 
 post('/signingUp') do
     signUp = signUp(params)
-    # ifSignUp(signUp)
     redirect('/')
 end
 
@@ -133,5 +132,9 @@ post('/loggedIn/unJoiningEvent') do
 end
 
 post('/loggedIn/doneEvents') do
+    redirect("/loggedIn/#{session[:id]}")
+end
+
+post('/loggedIn/doneEvents?') do
     redirect("/loggedIn/#{session[:id]}")
 end

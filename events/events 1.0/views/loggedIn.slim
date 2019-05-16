@@ -3,7 +3,7 @@
         p = "You have logged in, " + user['Username'].upcase!
 
         form action="doneEvents" POST="METHOD"
-            input type="submit" value="Review event" name="review"
+            <button id="review_events"><a href="/loggedIn/#{session['id']}">Review Events</a></button>
 
         form action="editEvent" METHOD="POST"
             input type="submit" value="Edit events" name="edit"

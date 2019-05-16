@@ -68,7 +68,7 @@ def deleteEvent(params, session)
 end
 
 def redirectLoggedIn()
-    if session[:id] != nil
+    if session['id'] != nil
         return true 
     else
         return false 
