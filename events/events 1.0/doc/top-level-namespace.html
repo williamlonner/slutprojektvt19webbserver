@@ -112,9 +112,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Display Landing Page.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -180,9 +178,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Redirects to Landing Page.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -204,9 +200,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Displays logged in page.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -294,9 +288,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Displays the page for signing up.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -371,6 +363,28 @@
   <span class="summary_signature">
     
       <a href="top-level-namespace.html#POST__loggedIn_doneEvents-instance_method" title="#POST /loggedIn/doneEvents (instance method)">#<strong>POST /loggedIn/doneEvents</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#POST__loggedIn_doneEvents_-instance_method" title="#POST /loggedIn/doneEvents? (instance method)">#<strong>POST /loggedIn/doneEvents?</strong>  &#x21d2; Object </a>
     
 
     
@@ -561,31 +575,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Display Landing Page</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-13
-14
-15</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 11</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:index</span><span class='rparen'>)</span>
@@ -610,12 +611,12 @@
       <pre class="lines">
 
 
-71
-72
-73</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 61</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:error</span><span class='rparen'>)</span>
@@ -640,16 +641,16 @@
       <pre class="lines">
 
 
-54
-55
-56
-57
-58
-59
-60</pre>
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 44</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_redirectLoggedIn'>redirectLoggedIn</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>true</span>
@@ -672,31 +673,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Redirects to Landing Page</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 19</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -715,40 +703,26 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Displays logged in page</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+23
+24
+25
+26
+27
+28
+29
+30
+31
 32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 23</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/:id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_getUserInfo'>getUserInfo</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -759,7 +733,6 @@
     <span class='id identifier rubyid_events'>events</span> <span class='op'>=</span> <span class='id identifier rubyid_getEvent'>getEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_coming'>coming</span> <span class='op'>=</span> <span class='id identifier rubyid_getComingInfo'>getComingInfo</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_joined'>joined</span> <span class='op'>=</span> <span class='id identifier rubyid_joinedOrNot'>joinedOrNot</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_byebug'>byebug</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:loggedIn</span><span class='comma'>,</span> <span class='label'>locals:</span><span class='lbrace'>{</span><span class='label'>user:</span> <span class='id identifier rubyid_info'>info</span><span class='comma'>,</span> <span class='label'>events:</span> <span class='id identifier rubyid_events'>events</span><span class='comma'>,</span> <span class='label'>coming:</span> <span class='id identifier rubyid_coming'>coming</span><span class='comma'>,</span> <span class='label'>session:</span> <span class='id identifier rubyid_session'>session</span><span class='comma'>,</span> <span class='label'>joined:</span> <span class='id identifier rubyid_joined'>joined</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -782,17 +755,17 @@
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
-68
-69</pre>
+52
+53
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 52</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/comments/:eventId</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_comments'>comments</span> <span class='op'>=</span> <span class='id identifier rubyid_getComments'>getComments</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span>
@@ -822,13 +795,13 @@
       <pre class="lines">
 
 
-49
-50
-51
-52</pre>
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 39</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/editEvent/:id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_events'>events</span> <span class='op'>=</span> <span class='id identifier rubyid_getUserEvent'>getUserEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -854,12 +827,12 @@
       <pre class="lines">
 
 
-45
-46
-47</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 35</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/editevents/:id</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:editevents</span><span class='rparen'>)</span>
@@ -878,31 +851,18 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Displays the page for signing up</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-19
-20
-21</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 15</span>
 
 <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/signUp</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_slim'>slim</span><span class='lparen'>(</span><span class='symbol'>:signUp</span><span class='rparen'>)</span>
@@ -927,13 +887,13 @@
       <pre class="lines">
 
 
-126
-127
-128
-129</pre>
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 115</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/comments</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:eventId</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>readComments</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -959,17 +919,17 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135
-136
-137
-138</pre>
+120
+121
+122
+123
+124
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 120</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/comments/writeComment</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_newComment'>newComment</span> <span class='op'>=</span> <span class='id identifier rubyid_writeComment'>writeComment</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span>
@@ -999,13 +959,13 @@
       <pre class="lines">
 
 
-101
-102
-103
-104</pre>
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 90</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/createEvent</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_addEvent'>addEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -1031,14 +991,44 @@
       <pre class="lines">
 
 
-145
-146
-147</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 134</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/doneEvents</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/loggedIn/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="POST__loggedIn_doneEvents_-instance_method">
+  
+    #<strong>POST /loggedIn/doneEvents?</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app.rb', line 138</span>
+
+<span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/doneEvents?</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/loggedIn/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1061,12 +1051,12 @@
       <pre class="lines">
 
 
-106
-107
-108</pre>
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 95</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/editEvent</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/loggedIn/editEvent/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1091,16 +1081,16 @@
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116</pre>
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 99</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/editEvent/deleteEvent</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_deleteEvent'>deleteEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>false</span>
@@ -1129,16 +1119,16 @@
       <pre class="lines">
 
 
-118
-119
-120
-121
-122
-123
-124</pre>
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 107</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/joiningEvent</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_joinEvent'>joinEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
@@ -1167,13 +1157,13 @@
       <pre class="lines">
 
 
-96
-97
-98
-99</pre>
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 85</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/loggingOut</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -1199,13 +1189,13 @@
       <pre class="lines">
 
 
-140
-141
-142
-143</pre>
+129
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 129</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggedIn/unJoiningEvent</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_unJoinEvent'>unJoinEvent</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='rparen'>)</span>
@@ -1231,23 +1221,23 @@
       <pre class="lines">
 
 
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
 75
 76
 77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 65</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loggingIn</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -1283,19 +1273,17 @@
       <pre class="lines">
 
 
-90
-91
-92
-93
-94</pre>
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'app.rb', line 80</span>
 
 <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/signingUp</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_signUp'>signUp</span> <span class='op'>=</span> <span class='id identifier rubyid_signUp'>signUp</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-    <span class='comment'># ifSignUp(signUp)
-</span>    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_redirect'>redirect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1307,7 +1295,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu May  9 10:46:59 2019 by
+  Generated on Thu May 16 09:24:39 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.19 (ruby-2.4.2).
 </div>
