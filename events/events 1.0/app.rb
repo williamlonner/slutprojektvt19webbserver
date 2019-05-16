@@ -79,7 +79,7 @@ end
 
 post('/signingUp') do
     signUp = signUp(params)
-    ifSignUp(signUp)
+    # ifSignUp(signUp)
     redirect('/')
 end
 
