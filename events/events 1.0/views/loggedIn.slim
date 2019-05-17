@@ -68,9 +68,13 @@
                         - if x['UserId'] != user['Id']
                             - if joined != false
                                 form action="unJoiningEvent" METHOD="POST"
+                                    - if error?
+                                        p.error = get_error()
                                     button name="notComingEvent" value="#{x['EventId']}" Un join
                             - else
                                 form action="joiningEvent" METHOD="POST"
+                                    - if error?
+                                        p.error = get_error()
                                     button name="comingEvent" value="#{x['EventId']}" Join
                     form action="comments" METHOD="POST"
                         button name="readComments" value="#{x['EventId']}" Read comments

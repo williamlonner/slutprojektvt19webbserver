@@ -6,6 +6,22 @@ require 'bcrypt'
 require 'date'
 require_relative './model.rb'
 
+include Model # All objects for the website
+
+# Makes it possible to read and use the error message for every individual error in all the slim files
+#
+helpers do
+    def get_error()
+        error = session[:msg].dup
+        session[:msg] = nil
+        return error
+    end
+
+    def error?
+        !session[:msg].nil?
+    end
+end
+
 enable :sessions
 
 # Display Landing Page
@@ -49,31 +65,28 @@ get('/loggedIn/editEvent/:id') do
     slim(:editevents, locals:{events: events})
 end
 
-# Redirects to Logged In Page or Landing Page
+# Redirects to Logged In Page or Landing Page if no error occured
 #
 get('/loggedIn') do
-    if redirectLoggedIn() == true
-        redirect("/loggedIn/#{session[:id]}")
-    else
+    res = redirectLoggedIn()
+    if res[:error] == true
+        session[:msg] = res[:message]
         redirect('/')
+    else
+        redirect("/loggedIn/#{session[:id]}")
     end
 end
 
 # Display Comments Page for specific Event or Redirects to Logged In Page
 # 
 get('/loggedIn/comments/:eventId') do
-    comments = getComments(session)
-    if comments != false
-        slim(:comments, locals:{comments: comments})
-    else
+    res = getComments(session)
+    if res == true
+        session[:msg] = res[:message]
         redirect("/loggedIn/#{session[:id]}")
+    else
+        slim(:comments, locals:{comments: res[:comments]})
     end
-end
-
-# Display Error Page
-#
-get('/error') do
-    slim(:error)
 end
 
 # Redirects to Logged In Page if the login parameters are correct
@@ -83,17 +96,13 @@ end
 #
 # @see Model#login
 post('/loggingIn') do
-    if login(params) != nil
-        session[:id] = login(params)['Id']
-        redirect("/loggedIn/#{session[:id]}")
+    res = login(params)
+    if res[:error] == true
+        session[:msg] = res[:message]
+        redirect('/')
     else
-        redirect('/error')
-    end
-
-    if login(params) != false
+        session[:id] = res[:user_id]
         redirect("/loggedIn/#{session[:id]}")
-    else
-        redirect('/error')
     end
 end
 
@@ -104,8 +113,13 @@ end
 #
 # @see Model#signUp
 post('/signingUp') do
-    signUp = signUp(params)
-    redirect('/')
+    res = signUp(params)
+    if res[:error] == true
+        session[:msg] = res[:message]
+        redirect('/signUp')
+    else
+        redirect('/')
+    end
 end
 
 # Redirects to Landing Page after making session of the logged in user to nil
@@ -141,11 +155,11 @@ end
 #
 # @see Model#deleteEvent
 post('/loggedIn/editEvent/deleteEvent') do
-    if deleteEvent(params, session) != false
-        redirect("/loggedIn/editEvent/#{session[:id]}")
-    else
-        redirect('/error')
+    res = deleteEvent(params, session)
+    if res[:error] == true
+        session[:msg] = res[:message]
     end
+    redirect("/loggedIn/editEvent/#{session[:id]}")
 end
 
 # Count the people who join different events
@@ -154,11 +168,11 @@ end
 #
 # @see Model#joinEvent
 post('/loggedIn/joiningEvent') do
-    if joinEvent(params, session) == false
-        redirect('/error')
-    else
-        redirect("/loggedIn/#{session[:id]}")
+    res = joinEvent(params, session)
+    if res[:error] == true
+        session[:msg] = res[:message]
     end
+    redirect("/loggedIn/#{session[:id]}")
 end
 
 # Redirects to the specific events commentsection
@@ -175,12 +189,11 @@ end
 #
 # @see Model#writeComment
 post('/loggedIn/comments/writeComment') do
-    newComment = writeComment(params, session)
-    if newComment != false
-        redirect("/loggedIn/comments/#{session[:eventId]}")
-    else
-        redirect('/error')
+    res = writeComment(params, session)
+    if res[:error] == true
+        session[:msg] = res[:message]
     end
+    redirect("/loggedIn/comments/#{session[:eventId]}")
 end
 
 # Deletes the specific user wanting to leave a event

@@ -1,6 +1,8 @@
 h1 Event 'n Friends
 
 form action="loggingIn" METHOD="POST"
+    - if error?
+        p.error = get_error()
     input type="text" placeholder="Username" name="Uname"
     br
     input type="password" placeholder="Password" name="Pword"

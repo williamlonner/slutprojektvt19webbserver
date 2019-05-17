@@ -9,9 +9,13 @@ a href="/loggedIn" Back
         h4 = "Övrig info:"
         p = x['Comment']
         form action="deleteEvent" METHOD="POST"
+            - if error?
+                p.error = get_error()
             button name="eventDelete" value="#{x['EventId']}" Delete
         br
     - else
         form action="deleteEvent" METHOD="POST"
+            - if error?
+                p.error = get_error()
             button name="eventDelete" value="#{x['EventId']}" Delete
         br

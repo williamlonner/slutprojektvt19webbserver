@@ -1,6 +1,8 @@
 p Sign Up below:
 
 form action="signingUp" METHOD="POST"
+    - if error?
+        p.error = get_error()
     input type="text" placeholder="Username" name="nUname"
     br
     input type="password" placeholder="Password" name="nPword"
